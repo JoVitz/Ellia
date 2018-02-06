@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour {
     public Image iconFire;
     public FireBall fireball;
     private Vector2 prevDir;
+    public Image iconSoul;
+    public SoulBall soulball;
+    public Slider health;
+    public int mana;
+    public float coolDown;
+    private float timeLeft;
 
     //tood canvas UI
 
@@ -26,10 +32,23 @@ public class PlayerController : MonoBehaviour {
         rbody = GetComponent<Rigidbody2D>();
         spellIndex = -1;
         iconFire.enabled = false;
+        iconSoul.enabled = false;
+        health.maxValue = mana;
+        health.value = mana;
+        timeLeft = coolDown;
     }
 
     private void Update()
     {
+        //mana regained after cooldown
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            health.value++;
+            timeLeft = coolDown;
+        }
+
+
         movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
 
@@ -98,14 +117,24 @@ public class PlayerController : MonoBehaviour {
                 {
                     case 0:
                         Debug.Log("Fireball!");
-                        //create tmp variable to call its function
-                        FireBall tmp = (FireBall)Instantiate(fireball, new Vector3(transform.position.x + 0.8f + prevDir.x*1.5f, transform.position.y+1+ prevDir.y*1.5f, transform.position.z), Quaternion.identity);
-                        //send normalized vector to our created fireball
-                        tmp.Dir(prevDir.normalized);
-                        
+                        if (health.value > 5)
+                        {
+                            //create tmp variable to call its function
+                            FireBall tmp = (FireBall)Instantiate(fireball, new Vector3(transform.position.x + 0.8f + prevDir.x * 2f, transform.position.y + 1 + prevDir.y * 2f, transform.position.z), Quaternion.identity);
+                            //send normalized vector to our created fireball
+                            tmp.Dir(prevDir.normalized);
+                            health.value -= 5;
+                        }
                         break;
                     case 1:
-                        Debug.Log("Case 2");
+                        Debug.Log("Soul given!"); //todo limit utilisation
+                        if (health.value > 10)
+                        {
+                            SoulBall tmpS = (SoulBall)Instantiate(soulball, new Vector3(transform.position.x + 0.8f + prevDir.x * 2f, transform.position.y + 1 + prevDir.y * 2f, transform.position.z), Quaternion.identity);
+                            //send normalized vector to our created fireball
+                            tmpS.Dir(prevDir.normalized);
+                            health.value -= 10;
+                        }
                         break;
                     default:
                         Debug.Log("No active spell");
@@ -122,22 +151,26 @@ public class PlayerController : MonoBehaviour {
     private void spellCheck(string s)
     {
         string spellFire = "ULR";
-        string spellUh = "LDU";
+        string spellSoul = "LDU";
         if(String.Equals(s, spellFire))
         {
             Debug.Log("Spell Fire");
             iconFire.enabled = true;
+            iconSoul.enabled = false;
             spellIndex = 0;
         }
-        else if (String.Equals(s, spellUh))
+        else if (String.Equals(s, spellSoul))
         {
-            Debug.Log("Spell Uh");
+            Debug.Log("Spell Soul");
+            iconSoul.enabled = true;
+            iconFire.enabled = false;
             spellIndex = 1;
         }
         else
         {
             spellIndex = -1;
             iconFire.enabled = false;
+            iconSoul.enabled = false;
         }
     }
 }
