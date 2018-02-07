@@ -21,8 +21,7 @@ public class PlayerController : MonoBehaviour {
     public int mana;
     public float coolDown;
     private float timeLeft;
-
-    //tood canvas UI
+    public bool knowSoul;
 
 
     protected void Start()
@@ -36,6 +35,8 @@ public class PlayerController : MonoBehaviour {
         health.maxValue = mana;
         health.value = mana;
         timeLeft = coolDown;
+        prevDir = new Vector2(0, -1);
+        knowSoul = true;//false;
     }
 
     private void Update()
@@ -85,15 +86,13 @@ public class PlayerController : MonoBehaviour {
                 old_vector = movement_vector;
             }
             Debug.Log("spell " + spellChain);
-            //todo limit chain size
-
-
-
+            
             movement_vector = Vector2.zero;
         }
         else if(Input.GetMouseButtonUp(1))
         {
             spellCheck(spellChain);
+            prevDir = new Vector2(0, -1);
         }
         else
         {
@@ -127,7 +126,7 @@ public class PlayerController : MonoBehaviour {
                         }
                         break;
                     case 1:
-                        Debug.Log("Soul given!"); //todo limit utilisation
+                        Debug.Log("Soul given!"); 
                         if (health.value > 10)
                         {
                             SoulBall tmpS = (SoulBall)Instantiate(soulball, new Vector3(transform.position.x + 0.8f + prevDir.x * 2f, transform.position.y + 1 + prevDir.y * 2f, transform.position.z), Quaternion.identity);
@@ -150,6 +149,14 @@ public class PlayerController : MonoBehaviour {
 
     private void spellCheck(string s)
     {
+        //limits the length of the chain
+        Debug.Log(s.Length);
+        int l = s.Length - 3;
+        if (s.Length > 3)
+            s = s.Substring(l);
+        Debug.Log("spell " + s);
+
+
         string spellFire = "ULR";
         string spellSoul = "LDU";
         if(String.Equals(s, spellFire))
@@ -159,7 +166,7 @@ public class PlayerController : MonoBehaviour {
             iconSoul.enabled = false;
             spellIndex = 0;
         }
-        else if (String.Equals(s, spellSoul))
+        else if (String.Equals(s, spellSoul) && knowSoul)
         {
             Debug.Log("Spell Soul");
             iconSoul.enabled = true;

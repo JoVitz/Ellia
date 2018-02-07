@@ -6,6 +6,8 @@ public class SoulBall : MonoBehaviour {
 
     public float speed = 1;
     Vector3 dir = Vector2.zero;
+    public float timer = 10f;
+
     public void Dir(Vector3 value)
     {
         if (value.Equals(Vector3.zero)) Destroy(gameObject);// if we have zero direction we destroy this gameojbect;
@@ -24,6 +26,7 @@ public class SoulBall : MonoBehaviour {
         if (col.gameObject.tag == "Soulable")
         {
             col.gameObject.GetComponent<SoulController>().controlled = true;
+            col.gameObject.GetComponent<SoulController>().timeLeft= timer;
 
         }
         Destroy(gameObject);

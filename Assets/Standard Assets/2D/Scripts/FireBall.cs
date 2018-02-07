@@ -6,9 +6,13 @@ public class FireBall : MonoBehaviour {
 
     public float speed = 1;
     Vector3 dir = Vector2.zero;
+    public ManaScript mana;
+
+
     public void Dir(Vector3 value)
     {
-        if (value.Equals(Vector3.zero)) Destroy(gameObject);// if we have zero direction we destroy this gameojbect;
+        if (value.Equals(Vector3.zero))
+            Destroy(gameObject);// if we have zero direction we destroy this gameojbect;
                                                             //rotate our sprite towards direction of moving
         float angle = Mathf.Atan2(value.y, value.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -23,7 +27,14 @@ public class FireBall : MonoBehaviour {
         Debug.Log("enter " + col.gameObject.name);
         if (col.gameObject.tag == "Flammable")
         {
+            int r = Random.Range(0, 10);
+            if (r > 6)
+            {
+                Instantiate(mana, col.transform.position, Quaternion.identity);
+            }
+
             Destroy(col.gameObject);
+
 
         }
         Destroy(gameObject);
