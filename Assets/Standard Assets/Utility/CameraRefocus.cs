@@ -5,7 +5,7 @@ namespace UnityStandardAssets.Utility
 {
     public class CameraRefocus
     {
-        public Camera Camera;
+        public CameraManager Camera;
         public Vector3 Lookatpoint;
         public Transform Parent;
 
@@ -13,7 +13,7 @@ namespace UnityStandardAssets.Utility
         private bool m_Refocus;
 
 
-        public CameraRefocus(Camera camera, Transform parent, Vector3 origCameraPos)
+        public CameraRefocus(CameraManager camera, Transform parent, Vector3 origCameraPos)
         {
             m_OrigCameraPos = origCameraPos;
             Camera = camera;
@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Utility
         }
 
 
-        public void ChangeCamera(Camera camera)
+        public void ChangeCamera(CameraManager camera)
         {
             Camera = camera;
         }

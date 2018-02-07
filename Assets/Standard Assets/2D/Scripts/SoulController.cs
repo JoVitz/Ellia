@@ -17,16 +17,39 @@ public class SoulController : MonoBehaviour {
         adjust = new Vector3(0.8f, 1, 0);
         collide = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    //TODO FIX COLLISION
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log(col.gameObject.name);
+        if (col.gameObject.name.Equals("MainCharacter"))
+        {
+            collide = true;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.name.Equals("MainCharacter"))
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            collide = false;
+        }
+    }
+
+
+
+    // Update is called once per frame
+    void Update () {
 
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
             controlled = false;
         }
-        if (controlled )//&& !collide)
+        if (controlled && !collide)
         {
             switch(type)
             {
@@ -43,16 +66,5 @@ public class SoulController : MonoBehaviour {
 	}
 
 
-    //TODO FIX COLLISION
-    /*void OnCollisionEnter2D(Collision2D col)
-    {
-        Debug.Log(col.gameObject.name);
-        if(!col.gameObject.name.Equals("SoulBall(Clone)"))
-            collide = true;
-    }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        collide = false;
-    }*/
 }

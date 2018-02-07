@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 
     private Animator animator;                  //Used to store a reference to the Player's animator component.          
     private Rigidbody2D rbody;
-    private Vector2 movement_vector;
+    public Vector2 movement_vector;
     private Vector2 old_vector;
     private string spellChain;
     private int spellIndex;
