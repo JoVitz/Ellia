@@ -23,7 +23,7 @@ public class SoulController : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log(col.gameObject.name);
-        if (col.gameObject.name.Equals("MainCharacter"))
+        if (col.gameObject.name.Equals("MainCharacter") || col.gameObject.name.Contains("Enemy1"))
         {
             collide = true;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -32,7 +32,7 @@ public class SoulController : MonoBehaviour {
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.name.Equals("MainCharacter"))
+        if (col.gameObject.name.Equals("MainCharacter") || col.gameObject.name.Contains("Enemy1"))
         {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             collide = false;

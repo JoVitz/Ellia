@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b4acc94e3c901054dafecde037e5b74a
-timeCreated: 1515243613
+timeCreated: 1518454726
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -31,6 +31,7 @@ TextureImporter:
     21300048: walk-d7
     21300050: walk-d8
     21300052: walk-d9
+    21300054: Face
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -444,6 +445,19 @@ TextureImporter:
         height: 24
       alignment: 6
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Face
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 64
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
