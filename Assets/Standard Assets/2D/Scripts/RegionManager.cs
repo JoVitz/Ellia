@@ -5,6 +5,8 @@ using UnityEngine;
 public class RegionManager : MonoBehaviour {
 
     BoxCollider2D _collider;
+    public int nbEnemy1;
+    public Enemy1Manager enemy;
 
 
     void Awake()
@@ -16,15 +18,28 @@ public class RegionManager : MonoBehaviour {
     {
         CameraManager cam = Camera.main.gameObject.GetComponent<CameraManager>();
         cam.SetNewBounds(_collider.bounds);
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.tag == "Player")//&& !GetComponent<BoxCollider2D>().bounds.Intersects(other.bounds))
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("yolo");
             SetNewCameraBounds();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("coll: " + collision.name);
+        if (collision.gameObject.tag == "Player")
+        {
+            //while (GameObject.FindWithTag("Enemy") != null) Destroy(GameObject.FindWithTag("Enemy"));
+            //Destroy(GameObject.FindWithTag("Enemy"));
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+                GameObject.Destroy(enemy);
         }
     }
 

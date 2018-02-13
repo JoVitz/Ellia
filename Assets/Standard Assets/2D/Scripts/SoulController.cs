@@ -19,10 +19,8 @@ public class SoulController : MonoBehaviour {
 	}
 
 
-    //TODO FIX COLLISION
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log(col.gameObject.name);
         if (col.gameObject.name.Equals("MainCharacter") || col.gameObject.name.Contains("Enemy1"))
         {
             collide = true;
@@ -54,7 +52,6 @@ public class SoulController : MonoBehaviour {
             switch(type)
             {
                 case 0:
-                    Debug.Log("rock");
                     if (Vector3.Distance(transform.position, target.position + adjust) < 3)
                         transform.position += Time.deltaTime * (transform.position - target.position - adjust);
                     break;

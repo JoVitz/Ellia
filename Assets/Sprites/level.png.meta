@@ -1,12 +1,15 @@
 fileFormatVersion: 2
 guid: 40054174163954a40ad5ab6773fa8422
-timeCreated: 1515709548
+timeCreated: 1518526944
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: grass
     21300002: level_0
     21300004: Rock
+    21300006: treeG
+    21300008: treeR
+    21300010: treeY
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -106,6 +109,45 @@ TextureImporter:
         y: 472
         width: 16
         height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treeG
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 276
+        width: 64
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treeR
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 276
+        width: 64
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treeY
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 273
+        width: 64
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

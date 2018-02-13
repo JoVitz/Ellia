@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerManager : MonoBehaviour {
     private DialogueManager dial;
     public string content;
+    public bool pause=false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,17 +21,9 @@ public class TriggerManager : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            Debug.Log(content);
-            dial.SetDialogue(content);
+            dial.SetDialogue(content, pause);
         }
     }
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log(content);
-            dial.SetDialogue(content);
-        }
-    }*/
+
 
 }

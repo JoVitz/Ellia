@@ -25,8 +25,10 @@ public class DialogueManager : MonoBehaviour {
             frame++;
 	}
 
-    IEnumerator DialogueCoroutine(string s)
+    IEnumerator DialogueCoroutine(string s, bool pause)
     {
+        if(pause)
+            Time.timeScale = 0;
 
         box.SetActive(true);
 
@@ -35,10 +37,10 @@ public class DialogueManager : MonoBehaviour {
         foreach (var substring in substrings)
         {
             String[] subsubstrings = substring.Split('-');
-            Debug.Log(subsubstrings[0] + " " + subsubstrings[1]);
+
             //set the avatar
             Int32.TryParse(subsubstrings[0], out i);
-            Debug.Log("parse");
+
             switch (i)
             {
                 case 0:
@@ -63,13 +65,16 @@ public class DialogueManager : MonoBehaviour {
 
         }
         box.SetActive(false);
+        if(pause)
+            Time.timeScale = 1;
         yield return null;
     }
 
 
-    public void SetDialogue(string s)
+    public void SetDialogue(string s, bool pause)
     {
-        StartCoroutine("DialogueCoroutine", s);
+
+        StartCoroutine(DialogueCoroutine(s, pause));
 
     }
 

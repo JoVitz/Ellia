@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
     private Bounds currentBounds;
+    public Enemy1Manager enemy;
+    //todo fix position enemy
 
 
     public float alignDuration = 0.7f;
@@ -29,6 +31,8 @@ public class CameraManager : MonoBehaviour {
         }
 
         transform.position = targetPosition;
+
+        Instantiate(enemy);
     }
 
     public void SetNewBounds(Bounds newBounds)

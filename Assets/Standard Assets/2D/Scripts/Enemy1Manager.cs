@@ -13,6 +13,7 @@ public class Enemy1Manager : MonoBehaviour {
     public int damage = 1;
     private Color startcolor;
     private float timeLeft;
+    public ManaScript mana;
 
 
     // Use this for initialization
@@ -40,9 +41,13 @@ public class Enemy1Manager : MonoBehaviour {
 
         if (health < 0)
         {
+            int r = Random.Range(0, 10);
+            if (r > 5)
+            {
+                Instantiate(mana, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
-        Debug.Log(health);
 
         timer -= Time.deltaTime;
 

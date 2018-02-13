@@ -13,7 +13,6 @@ public class FireBall : MonoBehaviour {
     {
         if (value.Equals(Vector3.zero))
             Destroy(gameObject);// if we have zero direction we destroy this gameojbect;
-                                                            //rotate our sprite towards direction of moving
         float angle = Mathf.Atan2(value.y, value.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }

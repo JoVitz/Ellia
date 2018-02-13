@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
         health.value = mana;
         timeLeft = coolDown;
         prevDir = new Vector2(0, -1);
-        knowSoul = true;//false;
+        knowSoul = false;
     }
 
     private void Update()
@@ -159,7 +159,6 @@ public class PlayerController : MonoBehaviour {
     private void spellCheck(string s)
     {
         //limits the length of the chain
-        Debug.Log(s.Length);
         int l = s.Length - 3;
         if (s.Length > 3)
             s = s.Substring(l);
