@@ -25,7 +25,7 @@ public class RegionManager : MonoBehaviour {
         {
             Debug.Log("yolo");
             SetNewCameraBounds();
-        }//todo fix entry so that turning back works?
+        }
     }
 
 }

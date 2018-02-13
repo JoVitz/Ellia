@@ -33,9 +33,11 @@ public class CameraManager : MonoBehaviour {
 
     public void SetNewBounds(Bounds newBounds)
     {
-
-        currentBounds = newBounds;
-        StartCoroutine(AlignToNewBounds());
+        if (currentBounds != newBounds)
+        {
+            currentBounds = newBounds;
+            StartCoroutine(AlignToNewBounds());
+        }
     }
 
     public static Vector3 Vec3Lerp(float currentTime, float duration, Vector3 v3_start, Vector3 v3_target)

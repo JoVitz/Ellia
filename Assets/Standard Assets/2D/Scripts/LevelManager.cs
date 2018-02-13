@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour {
         {
             for(int y = 0; y<levelY; y++)
             {
-                Instantiate(region, new Vector3(x*12, y*9, 0), Quaternion.identity);
+                Instantiate(region, new Vector3(x*16, y*12, 0), Quaternion.identity);
             }
         }
 

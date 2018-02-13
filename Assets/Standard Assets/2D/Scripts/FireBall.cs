@@ -37,6 +37,17 @@ public class FireBall : MonoBehaviour {
 
 
         }
+        else if(col.gameObject.name.Contains("Enemy1"))
+        {
+            Enemy1Manager manager = col.gameObject.GetComponent<Enemy1Manager>();
+            manager.health -= 2;
+            manager.Colored();
+        }
+        Destroy(gameObject);
+    }
+
+    void OnBecameInvisible()
+    {
         Destroy(gameObject);
     }
 

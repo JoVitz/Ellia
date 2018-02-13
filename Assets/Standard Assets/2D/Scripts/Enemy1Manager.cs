@@ -8,6 +8,12 @@ public class Enemy1Manager : MonoBehaviour {
     public Vector2 movement_vector;
     private bool move;
     private float timer;
+    public int speedFactor = 15;
+    public int health = 5;
+    public int damage = 1;
+    private Color startcolor;
+    private float timeLeft;
+
 
     // Use this for initialization
     void Start () {
@@ -15,10 +21,29 @@ public class Enemy1Manager : MonoBehaviour {
         rbody = GetComponent<Rigidbody2D>();
         movement_vector = new Vector2();
         InitTimer();
+        startcolor = GetComponent<Renderer>().material.color;
+        timeLeft = 0;
     }
 	
+    public void Colored(){
+        timeLeft = 0.3f;
+        GetComponent<Renderer>().material.color = Color.red;
+    }
+
 	// Update is called once per frame
 	void Update () {
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            GetComponent<Renderer>().material.color = startcolor;
+        }
+
+        if (health < 0)
+        {
+            Destroy(gameObject);
+        }
+        Debug.Log(health);
+
         timer -= Time.deltaTime;
 
         if (timer > 0 && movement_vector.magnitude > 0)
@@ -27,18 +52,24 @@ public class Enemy1Manager : MonoBehaviour {
             animator.SetFloat("input_x_enemy1", movement_vector.x);
             animator.SetFloat("input_y_enemy1", movement_vector.y);
 
-
-
-            rbody.MovePosition(rbody.position + movement_vector / 10);
+            rbody.MovePosition(rbody.position + movement_vector / speedFactor);
 
             Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-            pos.x = Mathf.Clamp01(pos.x);
-            pos.y = Mathf.Clamp01(pos.y);
+
+            float widthRel = this.transform.lossyScale.x / (Screen.width) / 2; //relative width
+            float heightRel = this.transform.lossyScale.y / (Screen.height) / 2; //relative height
+
+
+            pos.x = Mathf.Clamp(pos.x, widthRel, 1 - widthRel);
+            pos.y = Mathf.Clamp(pos.y, heightRel, 1 - heightRel);
             transform.position = Camera.main.ViewportToWorldPoint(pos);
             //todo empecher passage autre écran avec joueur
+            //todo empecher toucher bord écran + destruct + pop
         }
         else if (timer < 0)
             InitTimer();
+        else
+            animator.SetBool("enemy1_isWalking", false);
     }
 
     void InitTimer()
@@ -51,11 +82,9 @@ public class Enemy1Manager : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.name.Contains("Region"))
+        if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("region");
-            InitTimer();
+            collision.gameObject.GetComponent<PlayerController>().health.value -= damage;
         }
     }
 

@@ -22,10 +22,12 @@ public class PlayerController : MonoBehaviour {
     public float coolDown;
     private float timeLeft;
     public bool knowSoul;
+    public GameObject gameover;
 
 
     protected void Start()
     {
+        gameover.SetActive(false);
         //Get a component reference to the Player's animator component
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour {
         iconFire.enabled = false;
         iconSoul.enabled = false;
         health.maxValue = mana;
+        health.minValue = 0;
         health.value = mana;
         timeLeft = coolDown;
         prevDir = new Vector2(0, -1);
@@ -41,6 +44,12 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
+        //todo gameover
+        if(health.value<=0)
+        {
+            gameover.SetActive(true);
+        }
+
         //mana regained after cooldown
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)

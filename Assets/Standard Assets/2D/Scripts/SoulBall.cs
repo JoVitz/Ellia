@@ -32,4 +32,9 @@ public class SoulBall : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
 }
