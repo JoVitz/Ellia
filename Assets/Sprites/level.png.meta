@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 40054174163954a40ad5ab6773fa8422
-timeCreated: 1518526944
+timeCreated: 1518616339
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,11 @@ TextureImporter:
     21300006: treeG
     21300008: treeR
     21300010: treeY
+    21300012: deadTree
+    21300014: bigRock
+    21300016: tomb
+    21300018: statue
+    21300020: door
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -148,6 +153,71 @@ TextureImporter:
         y: 273
         width: 64
         height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deadTree
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 447
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bigRock
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 413
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tomb
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 369
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: statue
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 369
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: door
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 370
+        width: 16
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

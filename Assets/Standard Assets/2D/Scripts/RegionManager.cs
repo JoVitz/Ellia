@@ -27,6 +27,10 @@ public class RegionManager : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             SetNewCameraBounds();
+            for(int i = 0; i<nbEnemy1; i++)
+            {
+                Instantiate(enemy, new Vector3(1, 1), Quaternion.identity);//todo adjust position
+            }
         }
     }
 

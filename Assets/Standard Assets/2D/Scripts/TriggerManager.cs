@@ -6,6 +6,7 @@ public class TriggerManager : MonoBehaviour {
     private DialogueManager dial;
     public string content;
     public bool pause=false;
+    public bool destroy = false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,8 @@ public class TriggerManager : MonoBehaviour {
         if (collision.tag == "Player")
         {
             dial.SetDialogue(content, pause);
+            if (destroy)
+                Destroy(gameObject);
         }
     }
 

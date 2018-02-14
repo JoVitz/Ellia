@@ -67,6 +67,7 @@ public class DialogueManager : MonoBehaviour {
         box.SetActive(false);
         if(pause)
             Time.timeScale = 1;
+
         yield return null;
     }
 
