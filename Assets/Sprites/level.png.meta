@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 40054174163954a40ad5ab6773fa8422
-timeCreated: 1518616339
+timeCreated: 1518714793
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,18 @@ TextureImporter:
     21300016: tomb
     21300018: statue
     21300020: door
+    21300022: hole
+    21300024: holeRU
+    21300026: holeRM
+    21300028: holeRD
+    21300030: holeMU
+    21300032: holeLU
+    21300034: holeLM
+    21300036: holeLD
+    21300038: holeMM
+    21300040: holeMD
+    21300042: treeD
+    21300044: treeU
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -218,6 +230,162 @@ TextureImporter:
         y: 370
         width: 16
         height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeRU
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 524
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeRM
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 519
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeRD
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 513
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeMU
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 524
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeLU
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 524
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeLM
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 519
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeLD
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 513
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeMM
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 519
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: holeMD
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 513
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hole
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 94
+        width: 150
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treeD
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 276
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: treeU
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 312
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

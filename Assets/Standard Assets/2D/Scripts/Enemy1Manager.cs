@@ -14,6 +14,7 @@ public class Enemy1Manager : MonoBehaviour {
     private Color startcolor;
     private float timeLeft;
     public ManaScript mana;
+    private RegionManager region;
 
 
     // Use this for initialization
@@ -46,6 +47,7 @@ public class Enemy1Manager : MonoBehaviour {
             {
                 Instantiate(mana, transform.position, Quaternion.identity);
             }
+            region.nbEnemy1--;
             Destroy(gameObject);
         }
 
@@ -87,10 +89,17 @@ public class Enemy1Manager : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().health.value -= damage;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        region = collision.gameObject.GetComponent<RegionManager>();
+        Debug.Log("enemy in: " + collision.gameObject.name);
     }
 
 }

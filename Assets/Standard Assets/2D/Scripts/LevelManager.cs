@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour {
         {
             for(int y = 0; y<levelY; y++)
             {
-                GameObject obj = Instantiate(region, new Vector3(x*16, y*12, 0), Quaternion.identity);
+                GameObject obj = Instantiate(region, new Vector3(x*21.4f, y*16, 0), Quaternion.identity);
                 obj.GetComponent<RegionManager>().nbEnemy1 = enemy1list[i];//todo complete
                 i++;
             }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
     private Bounds currentBounds;
-    //public Enemy1Manager enemy;
+    public Enemy1Manager enemy;
 
 
     public float alignDuration = 0.7f;
 
-    IEnumerator AlignToNewBounds()
+    IEnumerator AlignToNewBounds(int nbEnemy1)
     {
 
         Vector3 startVect = transform.position;
@@ -30,16 +30,20 @@ public class CameraManager : MonoBehaviour {
         }
 
         transform.position = targetPosition;
-
+        for (int i = 0; i < nbEnemy1; i++)
+        {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.farClipPlane / 2));
+            Instantiate(enemy, pos, Quaternion.identity);//todo adjust position (2,15
+        }
         //Instantiate(enemy);
     }
 
-    public void SetNewBounds(Bounds newBounds)
+    public void SetNewBounds(Bounds newBounds, int nbEnemy1)
     {
         if (currentBounds != newBounds)
         {
             currentBounds = newBounds;
-            StartCoroutine(AlignToNewBounds());
+            StartCoroutine(AlignToNewBounds(nbEnemy1));
         }
     }
 

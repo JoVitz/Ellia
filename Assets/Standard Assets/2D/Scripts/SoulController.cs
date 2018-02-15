@@ -21,20 +21,24 @@ public class SoulController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name.Equals("MainCharacter") || col.gameObject.name.Contains("Enemy1"))
+        if (col.gameObject.name.Contains("SoulBall"))//col.gameObject.name.Equals("MainCharacter") || col.gameObject.name.Contains("Enemy1"))
         {
-            collide = true;
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic ;
         }
+        else
+            collide = true;
     }
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.name.Equals("MainCharacter") || col.gameObject.name.Contains("Enemy1"))
+        if (col.gameObject.name.Contains("SoulBall")) //col.gameObject.name.Equals("MainCharacter") || col.gameObject.name.Contains("Enemy1"))
         {
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            collide = false;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
         }
+        else
+            collide = false;
     }
 
 
@@ -53,7 +57,9 @@ public class SoulController : MonoBehaviour {
             {
                 case 0:
                     if (Vector3.Distance(transform.position, target.position + adjust) < 3)
+
                         transform.position += Time.deltaTime * (transform.position - target.position - adjust);
+                    Debug.Log("move");
                     break;
                 default:
                     break;
