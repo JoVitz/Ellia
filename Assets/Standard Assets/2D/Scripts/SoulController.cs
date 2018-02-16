@@ -17,7 +17,7 @@ public class SoulController : MonoBehaviour {
         adjust = new Vector3(0.8f, 1, 0);
         collide = false;
 	}
-
+    //todo fix rock speed
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -56,7 +56,7 @@ public class SoulController : MonoBehaviour {
             switch(type)
             {
                 case 0:
-                    if (Vector3.Distance(transform.position, target.position + adjust) < 3)
+                    if (Vector3.Distance(transform.position, target.position + adjust) < 3 )
 
                         transform.position += Time.deltaTime * (transform.position - target.position - adjust);
                     Debug.Log("move");
